@@ -1,13 +1,15 @@
 <!DOCTYPE html!>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <style>
+      body{
+      background-color:black;
+}
  
       form, input, select { 
-      padding: 0;
-      margin: 0;
       outline: none;
       font-family: Roboto, Arial, sans-serif;
       font-size: 14px;
@@ -16,49 +18,60 @@
       }
       
    
-      h1 {
-      margin: 15px 0;
+      h4 {
       font-weight: 400;
-      width:50%;
+     // width:50%;
+      color:white; 
+      font-family:Verdana;
+      font-size:1.5em;
+      font-weight: bolder;
+      text-align: center;
+      margin-top:5px;
+      margin-bottom:5px;
+      font-style:oblique; 
       }
+ 
+      
+      
 
-     
       form {
       width: 90%;
-      padding: 20px 22.5%;
-      background: #fff;
-      margin-top:5px;
-      border:30px red;
-      height: 2000px;
-     
+      padding: 20px 5px 20px 5px;
+      margin: 5px 3% 0px 3%;
+      border:3px solid;
+      border-radius:5px;   
+      background-image: url({{url_for("static",filename="image.jpg")}});
+      background-clip:padding-box;
+    //  background-repeat:no-repeat;
       }
 
       input, select {
-      margin-bottom: 10px;
+      margin: 0 0 15px 23.5%;
       border: 1px solid #ccc;
       border-radius: 3px;
       }
-
       input {
-      width: 79%;
+      width: 50%;
       padding: 5px;
-      margin-bottom:15px;
       }
       
       select {
-      width: 30%;
+      width: 50%;
       padding: 10px 0;
-      background: transparent;
-      margin-right:18%;
+      background:#ffffff ;
       color:black;
+      text-align:center;
       }
        
       label{
-      width:30%;
-      color: black;
+      color: #000000;
       background:transparent;
-      margin-right:18%;
-      color:black;
+      display:block;
+      font-size: 20px;
+      margin-top:-10px;
+      margin-left:23.5%;
+     /* padding:0;*/
+      /*color:red;*/
 }
        
 
@@ -74,6 +87,7 @@
       button {
       width: 150px;
       padding: 10px;
+      margin-left:23.5%;
       border: none;
       -webkit-border-radius: 5px; 
       -moz-border-radius: 5px; 
@@ -87,28 +101,37 @@
       button:hover {
       background-color: #0666a3;
       }
+      
+      a{
+       text-decoration:none;
+
+}
+
+
  
     </style
   </head>
-  <body>
-     <h1>Fairly Used Car Prices Predictor</h1>
-<div> 
+  <body><header>
+     <a href="{{url_for("predict")}}"><h4>Fairly Used Car Prices Predictor</h4></a></header>
+
+<div class="col-md-8"> 
 {% with messages=get_flashed_messages(with_categories=True) %}
     {% if messages %}
        {% for category,message in messages %}
-          <div class="alert alert-{{category}}">{{message}}</div>
+          <div class="alert alert-{{category}}"><p style="color:red">{{message}}</p></div>
        {% endfor%}
     {% endif %}
 {% endwith %}
 {% block content %}
 {% endblock %} 
 </div> 
-     <form action="{{url_for("predict")}}" method="POST" required>
-     <label>
+
+
+     <form action="" method="POST" required>
       <input type="number" name="mileage" placeholder="Mileage (KM)" required>
-      </label><br/>
+      <br/>
   
-     <span>
+    
       <select name="location" id="location ">
         <option value="0" selected>Not In Nigeria</option>
         <option value="3" >Abia</option>
@@ -134,9 +157,8 @@
         <option value="14">Calabar </option>
       </select>
       <label>Location of the seller</label>
-    </span>
-
-    <span>
+          <br>
+ 
       <select id="year" name="Year">
         <option value="2000" selected>2000</option>
         <option value="2001">2001</option>
@@ -161,18 +183,17 @@
         <option value="2020">2020</option>
       </select>
       <label>Car Production Year</label><br>
-     </span>
+  
    
-     <span>
       <select name="Transmission"  >
         <option value="0" selected>Automatic</option>
         <option value="2">Manual</option>
       </select>
      <label>Transmission</label>
-     </span>
+    
+      <br>
 
-
-      <span>
+     
          <select name="Condition">
           <option value="0">Foreign Used</option>
           <option value="2" selected>Nigerian Used</option>
@@ -180,17 +201,16 @@
          </select>
          <label>Car's Condition</label>
        
-      </span><br>
-      <span>
+      <br>
+ 
          <select name="FuelType">
           <option value="1">Hybrid</option>
           <option value="3" selected>Petrol</option>
           <option value="0">Diesel</option>
           <option value="4">PetroleumGas</option>
          </select>
-         <label>Fuel Type</label></span>
-
-        <span>
+         <label>Fuel Type</label>
+      <br>
          <select name="Make">
           <option value="24">Ford</option>
           <option value="41">Lexus</option>
@@ -232,9 +252,9 @@
           <option value="34">Iveco</option>
           </select>
           <label>Car Make</label>
-     </span>
+   
     <br>
-        <span>
+        
          <select name="Model">
           <option value="339">RX300</option>
           <option value="152">Es300</option>
@@ -383,16 +403,12 @@
           <option value="36">A8</option>
           </select>
         <label>Model</label>
-        </span><br>
+        <br>
     
          <button type="submit">Get car price</button>
+         
         </form>
-       {% if output%}
-         <div>
-           <h3>The price of the car is <bold>{{output}}</bold>
-         </div>
-       {%endif%}
-
+ 
 
   </body>
 </html>
