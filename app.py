@@ -5,7 +5,7 @@ import pickle
 import os
 
 app=Flask(__name__)
-app.config["SECRET_KEY"]="45554134536334ttrt565'
+app.config["SECRET_KEY"]="45554134536334ttrt565"
 Model = pickle.load(open('model.pkl','rb'))
 
 @app.route("/",methods=["POST","GET"])
