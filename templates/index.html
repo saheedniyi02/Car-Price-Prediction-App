@@ -4,45 +4,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <style>
       body{
-      background-color:black;
-}
- 
-      form, input, select { 
+      background-color: black;
+      margin:none;
+      }
+
+      form, input, select {
       outline: none;
       font-family: Roboto, Arial, sans-serif;
       font-size: 14px;
       color: #666;
       line-height: 22px;
       }
-      
-   
-      h4 {
-      font-weight: 400;
-     // width:50%;
-      color:white; 
-      font-family:Verdana;
-      font-size:1.5em;
-      font-weight: bolder;
-      text-align: center;
-      margin-top:5px;
-      margin-bottom:5px;
-      font-style:oblique; 
+
+     .flash-price{
+      width: 90%;
+      margin: 3px 3% 3px 3%;
+      padding: 4px 0px 0.2px 0.2px;
+      height:32px;
+      text-align:center;
       }
- 
-      
-      
+
+
 
       form {
       width: 90%;
       padding: 20px 5px 20px 5px;
-      margin: 5px 3% 0px 3%;
+      margin: 0px 3% 0px 3%;
       border:3px solid;
-      border-radius:5px;   
-      background-image: url({{url_for("static",filename="images.jpg")}});
+      border-radius:5px;
+      background-image: url({{url_for("static",filename="image.jpg")}});
       background-clip:padding-box;
-    //  background-repeat:no-repeat;
+      background-repeat:no-repeat;
       }
 
       input, select {
@@ -50,11 +47,12 @@
       border: 1px solid #ccc;
       border-radius: 3px;
       }
+
       input {
       width: 50%;
       padding: 5px;
       }
-      
+
       select {
       width: 50%;
       padding: 10px 0;
@@ -62,7 +60,7 @@
       color:black;
       text-align:center;
       }
-       
+
       label{
       color: #000000;
       background:transparent;
@@ -72,8 +70,8 @@
       margin-left:23.5%;
      /* padding:0;*/
       /*color:red;*/
-}
-       
+      }
+
 
       input:hover, select:hover, textarea:hover {
       box-shadow: 0 0 5px 0 #095484;
@@ -89,9 +87,9 @@
       padding: 10px;
       margin-left:23.5%;
       border: none;
-      -webkit-border-radius: 5px; 
-      -moz-border-radius: 5px; 
-      border-radius: 5px; 
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
       background-color: #095484;
       font-size: 16px;
       color: #fff;
@@ -101,39 +99,53 @@
       button:hover {
       background-color: #0666a3;
       }
-      
+
       a{
        text-decoration:none;
 
-}
+      }
 
-
+      .site-header{
+       background-color: black;
  
+      }
+       
+      h4 {
+      font-weight: 400;
+      width:50%;
+      color:white;
+      font-family:Verdana;
+      font-size:1.5em;
+      font-weight:bolder;
+      margin-right: 30%;
+      margin-left: 30%;
+      margin-top:20px;
+      margin-bottom:35px;
+      font-style:oblique;
+      }
+
     </style
   </head>
-  <body><header>
-     <a href="{{url_for("predict")}}"><h4>Fairly Used Car Prices Predictor</h4></a></header>
+  <body>
+    <div class="site-header">
+     <header><a href="{{url_for("predict")}}"><h4>Fairly Used Car Prices Predictor</h4></a></header>
+   </div>
 
-<div class="col-md-8"> 
-{% with messages=get_flashed_messages(with_categories=True) %}
-    {% if messages %}
-       {% for category,message in messages %}
-          <div class="alert alert-{{category}}"><p style="color:red">{{message}}</p></div>
-       {% endfor%}
-    {% endif %}
-{% endwith %}
-{% block content %}
-{% endblock %} 
-</div> 
+      {% with messages=get_flashed_messages(with_categories=True) %}
+        {% if messages %}
+          {% for category,message in messages %}
+            <div class="alert alert-info flash-price"><strong>{{message}}</strong></div>
+          {% endfor%}
+        {% endif %}
+      {% endwith %}
 
 
      <form action="" method="POST" required>
       <input type="number" name="mileage" placeholder="Mileage (KM)" required>
       <br/>
-  
-    
+
+
       <select name="location" id="location ">
-        <option value="0" selected>Not In Nigeria</option>
         <option value="3" >Abia</option>
         <option value="4">Abuja</option>
         <option value="10">Anambra</option>
@@ -158,7 +170,7 @@
       </select>
       <label>Location of the seller</label>
           <br>
- 
+
       <select id="year" name="Year">
         <option value="2000" selected>2000</option>
         <option value="2001">2001</option>
@@ -183,26 +195,26 @@
         <option value="2020">2020</option>
       </select>
       <label>Car Production Year</label><br>
-  
-   
+
+
       <select name="Transmission"  >
         <option value="0" selected>Automatic</option>
         <option value="2">Manual</option>
       </select>
      <label>Transmission</label>
-    
+
       <br>
 
-     
+
          <select name="Condition">
           <option value="0">Foreign Used</option>
           <option value="2" selected>Nigerian Used</option>
           <option value="1">New</value>
          </select>
          <label>Car's Condition</label>
-       
+
       <br>
- 
+
          <select name="FuelType">
           <option value="1">Hybrid</option>
           <option value="3" selected>Petrol</option>
@@ -252,9 +264,9 @@
           <option value="34">Iveco</option>
           </select>
           <label>Car Make</label>
-   
+
     <br>
-        
+
          <select name="Model">
           <option value="339">RX300</option>
           <option value="152">Es300</option>
@@ -404,11 +416,11 @@
           </select>
         <label>Model</label>
         <br>
-    
+
          <button type="submit">Get car price</button>
-         
+
         </form>
- 
+
 
   </body>
 </html>
