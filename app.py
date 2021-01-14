@@ -23,7 +23,7 @@ def predict():
 		data=[[model,year,condition,transmission,fuel_type,location,mileage,make]]
 		prediction=Model.predict(data)[0]
 		output=round(prediction,-3)
-		flash(f"The price of the car is {output}","success")
+		flash(f"The car is worth {output}","success")
 	return render_template("index.html")
 
 if __name__=="__main__":
