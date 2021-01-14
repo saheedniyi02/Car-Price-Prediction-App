@@ -1,14 +1,12 @@
-# -*- coding: utf-8 -*-
-from __future__ import unicode_literals
 from flask import Flask,render_template,request,flash
 import pickle
 import os
 
 app=Flask(__name__)
-app.config["SECRET_KEY"]="45554134536334ttrt565"
+app.config["SECRET_KEY"]="6666uyffft"
 Model = pickle.load(open('model.pkl','rb'))
 
-@app.route("/",methods=["POST","GET"])
+@app.route("/",methods=["POST","GET"])	
 @app.route("/predict",methods=['POST','GET'])
 def predict():
 	if request.method=="POST":
@@ -23,8 +21,8 @@ def predict():
 		data=[[model,year,condition,transmission,fuel_type,location,mileage,make]]
 		prediction=Model.predict(data)[0]
 		output=round(prediction,-3)
-		flash(f"The car is worth {output}","success")
+		flash(f"The car is worth about {output} Naira","success")
 	return render_template("index.html")
-
+	
 if __name__=="__main__":
-	app.run()
+	app.run(debug=True)
