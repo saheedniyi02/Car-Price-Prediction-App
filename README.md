@@ -12,7 +12,7 @@ Of fairly used cars in Nigeria using machine learning
 has a mean_absolute_error of ≈850.</p>
 
 <h6>Data</h6>
-The data was scraped from 3 sites 
+5500+ datapoints were used to train the model.The data was scraped from 3 sites 
    <ul>
      <li> https://carmart.ng/ </li>
      <li>https://deals.jumia.com.ng/cars   </li>
