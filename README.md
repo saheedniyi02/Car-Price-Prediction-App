@@ -17,6 +17,7 @@ Of fairly used cars in Nigeria using machine learning.</p>
      <li>https://deals.jumia.com.ng/cars   </li>
      <li>https://buy.cars45.com/cars</li>
    </ul>
+The categorical values were label encoded and their numerical values were the "value" in their "option" tag.
 
 <h6>Model</h6>
  <p>Sklearn's Gradient boosting regressor with a:</p><br>
