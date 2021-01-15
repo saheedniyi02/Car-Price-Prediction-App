@@ -9,5 +9,8 @@ The data was scraped from 3 sites
    <ul>
      <li> https://carmart.ng/ </li>
      <li>https://deals.jumia.com.ng/cars   </li>
-     <li><a></a></li>
+     <li>https://buy.cars45.com/cars</li>
    </ul>
+
+<h6>Model</h6>
+ <p>Sklearn's Gradient boosting regressor with a</p>
