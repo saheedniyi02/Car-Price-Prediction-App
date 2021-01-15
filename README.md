@@ -1,4 +1,4 @@
-<h4>Car price prediction App>
+<h3>Car price prediction App</h3>
 
 <h6>Deployment</h6>
 <p>https://car-price-predict-flask.herokuapp.com/</p>
