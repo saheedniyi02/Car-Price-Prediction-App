@@ -8,6 +8,6 @@ has a mean_absolute_error of ≈850.</p>
 The data was scraped from 3 sites 
    <ul>
      <li> https://carmart.ng/ </li>
-     <li><a></a></li>
+     <li>https://deals.jumia.com.ng/cars   </li>
      <li><a></a></li>
    </ul>
