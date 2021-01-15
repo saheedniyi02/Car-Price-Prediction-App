@@ -14,7 +14,7 @@ The data was scraped from 3 sites
 
 <h6>Model</h6>
  <p>Sklearn's Gradient boosting regressor with a:</p><br>
- <p>Max depth:5</p><br>
- <p>Max Features:5</p><br>
- <p>Learning rate:0.025<p><br>
+ <p>Max depth:5</p>
+ <p>Max Features:5</p>
+ <p>Learning rate:0.025<p>
  <p>n_estimators:1200</p>
