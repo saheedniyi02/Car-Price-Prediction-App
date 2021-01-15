@@ -21,7 +21,7 @@ The categorical values were label encoded and their numerical values were the "v
 
 <h6>Model</h6>
  <p>Sklearn's Gradient boosting regressor with a:</p><br>
- <p>Max depth:5</p><p>Max Features:5</p><p>Learning rate:0.025<p><p>n_estimators:1200</p>
+ <p>Max depth:6</p><p>Max Features:5</p><p>Learning rate:0.025<p><p>n_estimators:1200</p>
  <p>The model gave a mean_absolute_error of ≈850 Thousand Naira</p>
 
 <h6>Challenges</h6>
